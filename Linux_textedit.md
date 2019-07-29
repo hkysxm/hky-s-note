@@ -1,6 +1,9 @@
+一些常用操作较为简单的指令只提供help内容
+
 ## find
 
- > 查找文件
+ - 查找文件
+ - 返回文件位置
 
 ### find --help
 ```
@@ -39,7 +42,8 @@ actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print
 
 ## grep
 
- > 寻找文件中符合条件的内容
+ - 寻找文件中符合条件的内容
+ - 返回对应的行数
 
 ### grep --help
 ```
@@ -125,7 +129,8 @@ if any error occurs and -q is not given, the exit status is 2.
 
 ## sed 
 
- > 配合正则表达式处理文件
+ - 配合正则表达式处理文件
+ - 返回处理后的文件内容
 
 ### sed --help
 ```sed --help
@@ -173,7 +178,8 @@ specified, then the standard input is read.
 
 ## awk
 
- > 分析文本内容
+ - 分析文本内容
+ - 输出处理后的文本
 
 ### awk --help
 ```
@@ -213,7 +219,8 @@ By default it reads standard input and writes standard output.
 
 ## xargs
 
- > 处理和传递参数，通过管道传递给命令
+ - 处理和传递参数，通过管道传递给命令
+ - 让不支持 **|** 的命令能接收到参数
 
 ### xargs --help
 ```
@@ -260,7 +267,8 @@ Non-mandatory arguments are indicated by [square brackets]
 
 ## sort
 
- > 排序
+ - 排序
+ - 输出排序后的内容
 
 ### sort --help
 ```sort --help
@@ -331,7 +339,9 @@ With no FILE, or when FILE is -, read standard input.
 
 ## uniq
 
- > 检查重复行
+ - 检查重复行
+ - 输出删除重复行后的内容
+ - 重复行不相邻时不起作用，需先使用`sort`进行排序
 
 ### uniq --help
 ```uniq --help
@@ -368,7 +378,8 @@ Also, comparisons honor the rules specified by 'LC_COLLATE'.
 
 ## tr
 
- > 处理转译输入内容
+ - 处理转译输入内容
+ - 输出处理后的内容
 
 ### tr --help
 ```
@@ -427,7 +438,7 @@ translation or deletion.
 
 ## cut
 
- > 剪切内容
+ - 剪切内容
 
 ### cut --help
 ```cut --help
@@ -465,7 +476,7 @@ With no FILE, or when FILE is -, read standard input.
 
 ## paste
 
- > 粘贴
+ - 粘贴
 
 ###　paste --help
 ```
@@ -484,7 +495,7 @@ Mandatory arguments to long options are mandatory for short options too.
 
 ## wc
  
- > 统计字数/行数等
+ - 统计字数/行数等
  
 ### wc --help
 ```
