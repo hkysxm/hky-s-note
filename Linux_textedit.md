@@ -43,7 +43,11 @@ actions: -delete -print0 -printf FORMAT -fprintf FILE FORMAT -print
 ## grep
 
  - 寻找文件中符合条件的内容
- - 返回对应的行数
+ - 返回对应行数的内容
+
+ > 简而言之，grep(global regualr expression print)会从输入中寻找指定的字符串，并输出符合条件的行数。这个操作会一直持续到输入内容的最后。
+
+ - `grep`操作不会修改、保存输入信息；同时也无法只搜索输入内容的一部分。
 
 ### grep --help
 ```
@@ -126,6 +130,118 @@ Exit status is 0 if any line is selected, 1 otherwise;
 if any error occurs and -q is not given, the exit status is 2.
 
 ```
+
+### 使用例
+
+源文件a_file：
+```
+boot
+book
+booze
+machne
+boots
+bungie
+bark
+aardvark
+broken$tuff
+robots
+tooboot
+```
+
+1. 默认：寻找所有*包含*`boo`的行
+```
+# grep "boo" a_file
+```
+
+输出：
+```
+boot
+book
+booze
+boots
+too boot
+```
+
+2. `-n`
+各个对应行及所在行数
+```
+grep -n "boo" a_file
+```
+
+输出：
+```
+1:boot
+2:book
+3:booze
+5:boots
+11:too boot
+```
+
+3. `-v`
+不符合条件的行
+```
+grep -vn "boo" a_file
+```
+
+输出：
+```
+4:machne
+6:bungie
+7:bark
+8:aardvark
+9:broken$tuff
+10:robots
+```
+
+4. `-c`
+只显示对应行数的数量
+```
+grep -c "boo" a_file
+```
+
+输出：`5`
+
+5. `-l`
+显示符合条件的文件
+```
+grep -l "boo" *
+```
+
+输出：`a_file`
+
+6. `-i`
+无视大小写
+```
+grep -i "BoO" a_file
+```
+
+7. `-x`
+完全符合
+```
+grep -x "boot" a_file
+```
+
+输出：`boot`
+
+8. `-A`
+输出指定行后的？行
+```
+grep -A2 "boot" a_file
+```
+
+输出：
+```
+boot
+book
+booze
+--
+boots
+bungie
+bark
+--
+too boot
+```
+
 
 ## sed 
 
