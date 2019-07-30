@@ -242,6 +242,36 @@ bark
 too boot
 ```
 
+9. **正则表达式非常重要**
+**正则表达式非常重要**
+**正则表达式非常重要**
+**正则表达式非常重要**
+
+10. `-E`
+ - *--extended-regexp*拓展grep范围，额外增加了原本一些不兹磁的正则
+ - 也可以使用egrep
+
+```
+grep -E "boots?" a_file
+```
+
+输出：
+```
+boot
+boots
+too boot
+```
+
+11. 特殊字符
+使用`\`进行转义
+```
+grep '\$' a_file
+```
+
+输出：
+```
+broken$tuff
+```
 
 ## sed 
 
