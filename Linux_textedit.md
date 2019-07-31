@@ -274,6 +274,7 @@ broken$tuff
 ```
 
 ## sed 
+(Stream editor)
 
  - 配合正则表达式处理文件
  - 返回处理后的文件内容
