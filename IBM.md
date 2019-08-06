@@ -100,10 +100,33 @@ Use the PCIe fanout to connect to the PCIe I/O drawer, which can contain the fol
 ### CPC drawer
 
  - **in the **A frame**
- - 8 single chip modules(SCMS)
- - memory
- - symmetric multiprocessor (SMP) connectivity
- - connectors to support PCIe I/O drawers (through PCIe fanout hbs)
- - I/O drawers through InfiniBand features
- - coupling links to other CPCs.
- 
+ - One CPC drawers contains:
+   - 8 single chip modules(SCMS)
+   - memory
+   - symmetric multiprocessor (SMP) connectivity
+   - connectors to support PCIe I/O drawers (through PCIe fanout hbs)
+   - I/O drawers through InfiniBand features
+   - coupling links to other CPCs.
+ - CPC drawer is divided in to 2 nodes. Each node contains:
+   - Three 8-core processor unit (PU) SCMS with *6/7/8 active cores (depending on the machine model)*
+   - One storage controller SCM, with a 480 MB L4 cache.
+   - Five DDR3 dual inline memory module (DIMM) slots per memory controller, for a total of up to 10 or 15 per node.
+ - Each CPC drawer contains two nodes, which altogether consist of the following components: 
+   - Six 8-core PU SCMs, with 39 or 42 active PUs, depending on the model
+   - Two Storage Controller SCMs, with 960 MB L4 cache total.
+   - DIMMs plugged in to 20 or 25 DIMM slots, providing 320 - 3,200 GB of physical memory and 256 - 2,560 GB of addressable memory.
+   - Ten PCIe Generation 3 (PCIe Gen3) slots for PCIe I/O drawer fanouts or PCIe coupling links fanouts.
+   - Four GX++ slots for IFB fanouts or InfiniBand coupling fanouts
+   - Two flexible service processor (FSP) cards for system control.
+   - Two DC converter assemblies (DCAs) that provide power to the CPC drawer. Loss of one DCA leaves enough power to satisfy the drawer’s power requirements (n+1 redundancy). The DCAs can be concurrently removed and replaced (one at a time).
+   - Water-cooling manifold for PU chips.
+
+### Oscillator
+
+ - 2 oscillator cards (OSCs): One primary & one backup
+ - Primary OSC fails =>secondary
+   - secondary detect the failure
+   - take over transparently
+   - continue to provide the clock signal to the CPC
+ - 2 Oscillator have Neill-Concelman (BNC) connectors that provide pulse per second signal (PPS) synchronization to an external time source with PPS output
+ - The SEs provide the Simple Network Time Protocol (SNTP) client function. 
