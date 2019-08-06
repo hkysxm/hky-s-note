@@ -4,6 +4,13 @@ IBM z13 server
 
  - **FRU**: Field Replaced Unit
  - **CPC**: central processor complex
+ - **OSC**：Oscillator cards
+ - **PPS**：pulse per second
+ - **SNTP**：Simple Network Time Protocol
+ - **STP**：Server Time Protocol
+ - **NTP**：Network Time Protocol
+ - **ETS**：External Time Source
+
 
 ### 存储连接
 
@@ -15,7 +22,9 @@ IBM z13 server
 
  - **OSA-Express**
 
+### 其他链接
 
+ - **FSP**：Flexible Service Processor
 
 ## Frames & drawers
 
@@ -87,3 +96,14 @@ Use the PCIe fanout to connect to the PCIe I/O drawer, which can contain the fol
   Has a 2-port card, and up to 31 LPARS can share a physical adapter.
  - zEnterprise Data Compression (zEDC) Express
  The Enterprise Data Compression Express feature occupies one I/O slot, but it does not have a CHPID type. Up to 15 partitions can share the feature concurrently.
+
+### CPC drawer
+
+ - **in the **A frame**
+ - 8 single chip modules(SCMS)
+ - memory
+ - symmetric multiprocessor (SMP) connectivity
+ - connectors to support PCIe I/O drawers (through PCIe fanout hbs)
+ - I/O drawers through InfiniBand features
+ - coupling links to other CPCs.
+ 
