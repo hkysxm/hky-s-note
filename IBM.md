@@ -10,7 +10,7 @@ IBM z13 server
  - **STP**：Server Time Protocol
  - **NTP**：Network Time Protocol
  - **ETS**：External Time Source
-
+ - **SCM**：Single chip modules
 
 ### 存储连接
 
@@ -97,7 +97,7 @@ Use the PCIe fanout to connect to the PCIe I/O drawer, which can contain the fol
  - zEnterprise Data Compression (zEDC) Express
  The Enterprise Data Compression Express feature occupies one I/O slot, but it does not have a CHPID type. Up to 15 partitions can share the feature concurrently.
 
-### CPC drawer
+## CPC drawer
 
  - **in the **A frame**
  - One CPC drawers contains:
@@ -130,3 +130,18 @@ Use the PCIe fanout to connect to the PCIe I/O drawer, which can contain the fol
    - continue to provide the clock signal to the CPC
  - 2 Oscillator have Neill-Concelman (BNC) connectors that provide pulse per second signal (PPS) synchronization to an external time source with PPS output
  - The SEs provide the Simple Network Time Protocol (SNTP) client function. 
+
+
+### System control 
+
+ - Various system elements are managed through the FSPs.
+ - Each FSP card has: two ports to connect to two internal Ethernet LANs, through system control hubs (SCH1 and SCH2)
+ - FSPs communicate with the SEs and provide a subsystem interface (SSI) for controlling components
+
+### CPC drawer power
+ - Each CPC drawer gets its power from two DCAs
+ - DCAs provide the required power for the drawer in an n+1 configuration
+ - Loss of one DCA leaves enough power to meet power requirements for the entire drawer
+ - DCAs can be concurrently serviced, and are accessed from the rear of the frame A
+
+## Single chip modules
