@@ -277,7 +277,8 @@ broken$tuff
 (Stream editor)
 
  - 配合正则表达式处理文件
- - 返回处理后的文件内容
+ - 返回处理后的内容
+ - 不会改变源文件的内容
 
 ### sed --help
 ```sed --help
@@ -322,6 +323,10 @@ non-option argument is taken as the sed script to interpret.  All
 remaining arguments are names of input files; if no input files are
 specified, then the standard input is read.
 ```
+### 使用例
+
+1. `sed -e 's/input/output/' my_file `
+
 
 ## awk
 
@@ -363,6 +368,10 @@ section `Reporting Problems and Bugs' in the printed version.
 gawk is a pattern scanning and processing language.
 By default it reads standard input and writes standard output.
 ```
+
+
+## sed和awk的区别（个人理解）
+
 
 ## xargs
 
