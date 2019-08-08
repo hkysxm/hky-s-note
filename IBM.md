@@ -10,7 +10,9 @@ IBM z13 server
  - **STP**：Server Time Protocol
  - **NTP**：Network Time Protocol
  - **ETS**：External Time Source
- - **SCM**：Single chip modules
+ - **SCM**：Single chip module
+ - **SC**：storage control
+ - **RAS**: Reliability, Availability and Serviceability
 
 ### 存储连接
 
@@ -144,4 +146,3 @@ Use the PCIe fanout to connect to the PCIe I/O drawer, which can contain the fol
  - Loss of one DCA leaves enough power to meet power requirements for the entire drawer
  - DCAs can be concurrently serviced, and are accessed from the rear of the frame A
 
-## Single chip modules
