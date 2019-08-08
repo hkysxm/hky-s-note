@@ -63,6 +63,18 @@
   `smitty [ -C ] [ -D ] [ -f ] [ -h ] [ -l File ] [ -o PathName ] [ -s File ] [ -t ] [ -v ] [ [ -m | -n | -d ] FastPath ] [ -X ] [ -x ]`
 
 
+-------
+`ps -ef | gpep sync` 查看同步
+`df -g` 查看文件大小
+`chfs -a size=5G`    修改文件大小
+创建LV `smitty mklv`  /`smitty rmlv` 删除LV
+`migratepv -l` lv的名字  迁移LV的数据
+
+`lsvg rootvg`  查看PP SIZE:    1024 megabyte(s) 为了建立LV的时候计算
+
+如何创建文件系统 `smitty crfs`   /  `smitty rmfs` 删除文件系统 
+
+如果删不掉 要查看这个LV是否有文件系统挂在 如果有 那需要`umount /nimama`  反之当需要LV和文件系统都创建好以后 就需要把文件系统mount起来
 
 
 -------
