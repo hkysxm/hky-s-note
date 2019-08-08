@@ -41,11 +41,26 @@
  - **Syntax**：`smit [ -C | -M ] [ -D ] [ -f ] [ -h ] [ -l File ] [ -o PathName ] [ -p Entity/ValueString ] [ -r RunMode ] [ -s File ] [ -t ] [ -v ] [ [ -m | -n | -d ] FastPath ] [ -X ] [ -x ]`
 
 
+`lsvg`: Displays information about volume groups.
 
+ - **Syntax**: `lsvg [ -L ] [ -o ] | [ -n descriptorphysicalvolume ] | [ -i ] [ -l | -M | -p ] [ -m ] [ -P ] volumegroup ...`
 
+`lslv`: Displays information about a logical volume.
 
+ - **Syntax**:
+  To Display Logical Volume Information
 
+  `lslv [ -L ] [ -l| -m ] [ -n PhysicalVolume ] LogicalVolume`
 
+  To Display Logical Volume Allocation Map
+
+  `lslv [ -L ] [ -n PhysicalVolume ] -p PhysicalVolume [ LogicalVolume ]`
+
+ 
+`smitty` (`smit -C`): Provides a Curses-based text interface to perform system management.
+
+  - **Syntax**
+  `smitty [ -C ] [ -D ] [ -f ] [ -h ] [ -l File ] [ -o PathName ] [ -s File ] [ -t ] [ -v ] [ [ -m | -n | -d ] FastPath ] [ -X ] [ -x ]`
 
 
 
