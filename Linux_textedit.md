@@ -323,10 +323,9 @@ non-option argument is taken as the sed script to interpret.  All
 remaining arguments are names of input files; if no input files are
 specified, then the standard input is read.
 ```
-### 使用例
 
-1. `sed -e 's/input/output/' my_file `
 
+ > 内容较多，计划单独一篇
 
 ## awk
 
