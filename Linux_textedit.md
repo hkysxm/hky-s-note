@@ -278,7 +278,11 @@ broken$tuff
 
  - 配合正则表达式处理文件
  - 返回处理后的内容
- - 不会改变源文件的内容
+ - **不会改变源文件的内容**
+
+
+ > sed指令较为复杂，将会单独安排一篇
+
 
 ### sed --help
 ```sed --help
@@ -321,11 +325,18 @@ Usage: sed [OPTION]... {script-only-if-no-other-script} [input-file]...
 If no -e, --expression, -f, or --file option is given, then the first
 non-option argument is taken as the sed script to interpret.  All
 remaining arguments are names of input files; if no input files are
-specified, then the standard input is read.
+specified, then the standard input is read
 ```
 
 
- > 内容较多，计划单独一篇
+### 常用功能
+
+
+
+### 使用例
+
+1. `sed -e 's/input/output/' my_file `
+
 
 ## awk
 
@@ -368,8 +379,6 @@ gawk is a pattern scanning and processing language.
 By default it reads standard input and writes standard output.
 ```
 
-
-## sed和awk的区别（个人理解）
 
 
 ## xargs
