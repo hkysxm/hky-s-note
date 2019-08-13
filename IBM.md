@@ -13,6 +13,9 @@ IBM z13 server
  - **SCM**：Single chip module
  - **SC**：storage control
  - **RAS**: Reliability, Availability and Serviceability
+ - **IFL**: Integrated Facility for Linux
+ - **ICF**：internal coupling facility
+ - **zIIP**:System z Integrated Information Processor
 
 ### 存储连接
 
