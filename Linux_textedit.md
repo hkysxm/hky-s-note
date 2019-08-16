@@ -278,10 +278,10 @@ broken$tuff
 
  - 配合正则表达式处理文件
  - 返回处理后的内容
- - **不会改变源文件的内容**
+ - **默认情况下不会改变源文件的内容**
 
 
- > sed指令较为复杂，将会单独安排一篇
+ > sed指令较为复杂，将会单独再写一篇
 
 
 ### sed --help
@@ -329,14 +329,22 @@ specified, then the standard input is read
 ```
 
 
-### 常用功能
-
-
-
 ### 使用例
 
-1. `sed -e 's/input/output/' my_file `
+ - 常用功能-搜索替换`sed -e 's   '`
 
+  -  `sed -e 's/input/output/' my_file `
+将my_file中的每一行中的第一个input改为output
+
+  -  `sed -e 's/input/output/g' my_file `
+`g`参数：greedy，将每个input均替换为output
+
+ > /.../中可以为字符，也可以是正则表达式
+
+
+ - `-i` 对源文件进行处理
+
+  - 
 
 ## awk
 
