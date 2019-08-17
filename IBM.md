@@ -16,6 +16,7 @@ IBM z13 server
  - **IFL**: Integrated Facility for Linux
  - **ICF**：internal coupling facility
  - **zIIP**:System z Integrated Information Processor
+ - **CBU**：Capacity Backup
 
 ### 存储连接
 
