@@ -332,18 +332,17 @@ specified, then the standard input is read
 ### 常用功能
 
   - 搜索替换`sed -e 's   '`，下同
-  - 's' = search & replace
-  - 'p' = print
-  - 'd' = delete
-  - 'i'=insert
-  - 'a'=append
+  - `-e`:后为脚本，可执行多条命令，反之只能执行单个命令
+  - `s` = search & replace
+  - `s` = print
+  - `d` = delete
+  - `i`=insert在下一行加入内容
+  - `a`=append在上一行加入内容
 
 ### 使用例
 
-
-
  -  `sed -e 's/input/output/' my_file `
- 将my_file中的每一行中的第一个input改为output
+ 将my_file中的**每一行**中的**第一个**input改为output
 
  -  `sed -e 's/input/output/g' my_file `
  `g`参数：greedy，将每个input均替换为output
