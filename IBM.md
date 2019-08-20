@@ -17,6 +17,7 @@ IBM z13 server
  - **ICF**：internal coupling facility
  - **zIIP**:System z Integrated Information Processor
  - **CBU**：Capacity Backup
+ - **MCU**: memory controller units
 
 ### 存储连接
 
