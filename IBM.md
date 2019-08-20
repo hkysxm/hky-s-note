@@ -18,6 +18,8 @@ IBM z13 server
  - **zIIP**:System z Integrated Information Processor
  - **CBU**：Capacity Backup
  - **MCU**: memory controller units
+ - **SMT**: Simultaneous multithreading
+ 
 
 ### 存储连接
 
