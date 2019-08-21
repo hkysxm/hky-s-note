@@ -19,7 +19,7 @@ IBM z13 server
  - **CBU**：Capacity Backup
  - **MCU**: memory controller units
  - **SMT**: Simultaneous multithreading
- 
+ - **SMID**: Single-instruction multiple-data
 
 ### 存储连接
 
