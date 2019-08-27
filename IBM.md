@@ -20,6 +20,7 @@ IBM z13 server
  - **MCU**: memory controller units
  - **SMT**: Simultaneous multithreading
  - **SMID**: Single-instruction multiple-data
+ - **OOO**: Out-of-order
 
 ### 存储连接
 
