@@ -21,6 +21,9 @@ IBM z13 server
  - **SMT**: Simultaneous multithreading
  - **SMID**: Single-instruction multiple-data
  - **OOO**: Out-of-order
+ - **BPC**: Bulk power controller 
+ - **BPD**: Bulk power distributer 
+
 
 ### 存储连接
 
@@ -35,6 +38,7 @@ IBM z13 server
 ### 其他链接
 
  - **FSP**：Flexible Service Processor
+ 
 
 ## Frames & drawers
 
