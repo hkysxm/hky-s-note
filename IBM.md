@@ -34,7 +34,7 @@ IBM z13 server
  
 ###　网络连接
 
- - **OSA-Express**
+ - **OSA-Express**:HBA(Host Bus Adapter)
 
 ### 其他链接
 
