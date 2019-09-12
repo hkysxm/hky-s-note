@@ -30,6 +30,7 @@ IBM z13 server
  - **FICON**: IBM Fibre Connection
  - **FC**: Fibre Channel
  - **FCP**: FIbre Channel Protocol
+ - **DDM**: Dynamic Deformation Model 
  
 ###　网络连接
 
