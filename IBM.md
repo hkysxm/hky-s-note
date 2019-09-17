@@ -25,18 +25,20 @@ IBM z13 server
  - **BPD**: Bulk power distributer 
 
 
-### 存储连接
+### 存储
 
  - **FICON**: IBM Fibre Connection
  - **FC**: Fibre Channel
  - **FCP**: FIbre Channel Protocol
- - **DDM**: Dynamic Deformation Model 
- 
-###　网络连接
+ - **DDM**: Disk Drive Module
+ - **PAV**: Parallel access volumes
+ - **LUN**: Logical Unit Number
+
+###　网络
 
  - **OSA-Express**:HBA(Host Bus Adapter)
 
-### 其他链接
+### 其他
 
  - **FSP**：Flexible Service Processor
  
