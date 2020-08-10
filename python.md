@@ -19,12 +19,12 @@
 #### 空值
  - `none`
  - Python中没有`null`
- 
+
 #### `title()`方法
 
  - 只最大化每个词的首字母，中间的大写会变成小写
 
-```
+```python
 name = ('ada loVelace')
 print(name.title())
 
@@ -42,7 +42,7 @@ Ada Lovelace
  - `rstrip()`删除结尾字符是**暂时性**的
  - 填入参数：删除结尾的指定字符`rstrip('?')`
 
-```
+```python
 >>> favorite_language = 
 'python '
 >>> favorite_language 
@@ -52,7 +52,7 @@ Ada Lovelace
 >>> favorite_language
 'python '
 ```
-```
+```python
 language = ' python 111111'
 print(language)
 print(language.rstrip('1'))
@@ -72,7 +72,7 @@ python 111111
  - 可以不加括号
 
 ### 数字
- 
+
  > 空格不影响Python计算表达式的方式
 
 #### 整数
@@ -80,7 +80,7 @@ python 111111
 #### 浮点数
 
  - 结果包含的小数位数可能是**不确定的**
- ```
+ ```python
 >>> 0.2 + 0.1 
 0.30000000000000004 
 >>> 3 * 0.1 
@@ -117,7 +117,7 @@ python 111111
 
 #### `append()`
  - 在末尾添加元素
-```
+```python
 motorcycles = []
 motorcycles.append('honda') 
 motorcycles.append('yamaha') 
@@ -130,7 +130,7 @@ print(motorcycles)
 #### `insert()`
  - 在任意位置添加元素`insert(?,?)
  - 添加到指定位置之前，后方所有元素右移一个位置
-```
+```python
 motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles.insert(1, 'ducati') 
 print(motorcycles)
@@ -140,7 +140,7 @@ print(motorcycles)
 
 #### `del[]`
  - 删除指定**位置**的元素
- ```
+ ```python
  del motorcycles[0]
  ```
  - **方**括号内为位置索引
@@ -148,7 +148,7 @@ print(motorcycles)
 ### `pop()`
  - 无参数：弹出队尾元素（从末尾删除，并立即使用）
  - 有参数：弹出指定位置的元素（从列表中删除）
- ```
+ ```Python
  first_owned = motorcycles.pop(0) 
  print('The first motorcycle I owned was a ' + first_owned.title() + '.')
  ```
@@ -159,13 +159,13 @@ print(motorcycles)
  - 仅删除**第一个**符合的元素
 
 
-## 组织列表
+
 ### `sort()`
  - 对列表进行**永久**排序
  - 默认按ASCII码升序？
  - `table.sort()`
 
-```
+```python
 cars = ['bmw', 'audi', 'toyota', 'subaru']
 cars.sort() print(cars)
 # 输出
@@ -186,9 +186,52 @@ cars.sort() print(cars)
 ### `len()`
  - 确定列表长度
  - `len(table)`
-```
+```python
 >>> cars = ['bmw', 'audi', 'toyota', 'subaru'] 
 >>> len(cars) 
 4
+```
+
+## tuple元组
+
+- 一旦初始化就不能修改
+- 没有append()，insert()这样的方法；其他获取元素的方法和list相同
+- `t=()` `t = (1,2,3)`  `t = (1,)`
+
+- tuple无法改变，但是tuple的项目自身可以变化
+
+
+
+## 条件判断
+
+### `if`
+
+- 和其他语言的区别：需要加冒号
+- 注意缩进
+
+```python
+age = 20
+if age >= 18:
+    print('your age is', age)
+    print('adult')
+else:
+    print('your age is', age)
+    print('teenager')
+```
+
+### `elif`
+
+- 类似于其他语言的`else if`，和`switch case `也有相似之处
+- 注意缩进和冒号
+- 通常最后还有`else`
+
+```python
+age = 20
+if age >= 6:
+    print('teenager')
+elif age >= 18:
+    print('adult')
+else:
+    print('kid')
 ```
 
