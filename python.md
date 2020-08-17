@@ -128,8 +128,13 @@ print(motorcycles)
 ```
 
 #### `insert()`
- - 在任意位置添加元素`insert(?,?)
+ - 在任意位置添加元素`insert(?,?)`
  - 添加到指定位置之前，后方所有元素右移一个位置
+- `input()`返回的数据类型是`str`
+
+
+
+
 ```python
 motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles.insert(1, 'ducati') 
