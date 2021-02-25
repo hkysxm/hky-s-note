@@ -1,3 +1,5 @@
+# 基础
+
 ## 变量和简单数据类型
 
 ### 字符串
@@ -65,8 +67,8 @@ python 111111
 
 #### `lstrip()` `strip()`
 
- - `lstrip()`删除左侧
- - `strip()`删除两侧
+ - `lstrip()`删除左侧空白或指定字符
+ - `strip()`删除两侧空白或指定字符
 
 #### Python2中的`print`
  - 可以不加括号
@@ -105,18 +107,19 @@ python 111111
 #### 注释
  - 单个`#`即可
 
-## 列表
+## 列表list
 
  - 索引从0开始
  - 负数索引从-1开始，-1为最后一个
  - 用[]
  - 可以调用字符串方法等
  - 逗号后加不加空格随意
+ - 将结果生成为list时需要使用
 
-### 列表编辑
+### list方法
 
 #### `append()`
- - 在末尾添加元素
+ - 只能在末尾添加元素
 ```python
 motorcycles = []
 motorcycles.append('honda') 
@@ -129,8 +132,8 @@ print(motorcycles)
 
 #### `insert()`
  - 在任意位置添加元素`insert(?,?)`
- - 添加到指定位置之前，后方所有元素右移一个位置
-- `input()`返回的数据类型是`str`
+ - 添加到指定索引之**前**，后方所有元素右移一个位置
+- `input()`返回的数据类型是**`str`**
 
 
 
@@ -177,16 +180,17 @@ cars.sort() print(cars)
 ['audi', 'bmw', 'subaru', 'toyota']
 ```
  - 括号内填入参数即可适用其他排序方法
-    - 反向排序：`reverse=True`
+    - 逆向排序：`reverse=True`
 
 
 ### `sorted()`
- - 不改变列表实际顺序
+ - **临时**排序，不改变列表实际顺序
  - `sorted(table,reverse=True)`
 
 ### `reverse()`
  - **反转**列表元素的排列顺序
  - **永久**改变列表的顺序
+ - 和`sort(reserve=True)`的区别：`reserve()`只翻转列表，不会按照字母排序
 
 ### `len()`
  - 确定列表长度
@@ -261,7 +265,7 @@ else:
 
 - `range()`函数：生成**整数**序列，使用`list()`函数可转换为list
 
-  - `range(start,stop,step)` ：从`start`开始到`stop`前一个结束（不包括stop）
+  - `range(start,stop,step)` ：从`start`开始到`stop`**前**一个结束（不包括stop）
 
   - `range(10)`：**0**,1,2,3，...，**9**
 
@@ -391,24 +395,187 @@ TypeError: unhashable type: 'list'
 
 - 向set中添加元素：`s.add(key)`，移除元素：`s.remove(key)`
 
-## 小结
+
+# 函数
+
+## 定义函数
 
 ```python
->>> s
-{1, 2, 3, 4, 5}
->>> l
-['1', '2', 'name', '2']
->>> t
-(1, 2, 3)
->>> d
-{'name': 'ywwuyi', 'twitch': 'wuyikoei', 'douyu': 6655}
->>> type(s)
-<class 'set'>
->>> type(l)
-<class 'list'>
->>> type(d)
-<class 'dict'>
->>> type(t)
-<class 'tuple'>
+def function(x):
+    if x  0:
+        return x;
+    else:
+        return -x
 ```
 
+- `def`
+- 在Python命令行时，需要注意缩进
+- 打包作为py文件运行时，需要添加头
+
+## 导入函数
+
+从`script.py`导入`function()`函数：`from script import function`
+
+## `pass`
+
+- 可以编写空函数占位
+
+- 用在其他语句中，让代码能够继续运行下去
+
+```python
+if age >= 18:
+    pass
+```
+
+## `raise`
+
+- 引发异常
+- 引发异常后，`raise`后面的语句将无法执行
+- 使用`try...except`等语句可以进行异常调试
+
+
+
+
+
+## 函数参数
+
+### 位置参数
+- 按照传入值的顺序赋予给参数（变量）
+
+- `def function(x,y)`
+
+### 默认参数
+- 不填写参数时默认传入的值
+
+-  `def function(x,y=1,z='2')`
+- 必选参数在前，默认参数在后，否则Python的解释器会报错
+   - 有多个参数时，把变化多的参数放前面，变化少的参数放后面。变化小的参数就可以作为默认参数
+   - 不按顺序提供部分默认参数时，需要把参数名写上
+
+### 可变参数
+- 参数接收到的转为**tuple**，可以传入任意个参数，包括**0**个
+
+- 已有list或者tuple的情况下，可以直接变换后传入
+
+  ```python
+  def function(*x)
+  >> function()
+  >> function(1,2)
+  
+  >>> nums = [1, 2, 3]
+  >>> calc(*nums)
+  ```
+
+### 关键字参数
+- 必须传入要求的参数
+
+- 类似可变参数，传入后转为**dict**
+
+- `def function(x,y=1,**z)`
+
+- 将dict直接传入的情况
+
+  ```python
+  >>> extra = {'city': 'Beijing', 'job': 'Engineer'}
+  >>> person('Jack', 24, **extra)
+  name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'}
+  ```
+
+  
+
+### 命名关键字参数
+- 必须传入要求的参数**名**
+
+- 只接收特定关键字参数
+
+- 需要一个特殊分隔符`*`，`*`**后面**的参数被视为命名关键字参数
+
+- 可变参数后面的参数都为命名关键字参数，无需添加`*` 
+
+- 可以拥有默认值，有默认值的情况下，该项无需提供参数名
+
+  ```python
+  def person(name, age, *, city='Beijing', job):
+  >>> person('Jack', 24, job='Engineer')
+  Jack 24 Beijing Engineer
+  ```
+
+## 递归函数
+
+- python递归调用次数上限：1000
+
+- 普通递归调用：
+
+  ```python
+  1 def recursion(n):
+  2     if n==1:
+  3         return n
+  4     else:
+  5         return n+recursion(n-1)
+  
+  # recursion(5)
+  # 5+recursion(4)
+  # 5+(4+recursion(3))
+  # 5+(4+(3+recursion(2)))
+  # 5+(4+(3+(2+recursion(1))))
+  # 5+(4+(3+(2+1)))
+  # 15
+  ```
+
+- 尾递归实现：
+
+  ```python
+  1 def tail_recursion(n,total=0):
+  2     if n==0:
+  3         return total
+  4     else:
+  5         return tail_recursion(n-1,  total+n)  
+  
+  # recursion(5)
+  # 5+recursion(4)
+  # 5+(4+recursion(3))
+  # 5+(4+(3+recursion(2)))
+  # 5+(4+(3+(2+recursion(1))))
+  # 5+(4+(3+(2+1)))
+  # 15
+  ```
+
+- 两种情况下，两个函数递归调用次数均不能超过1000，执行参数n=999即报错
+
+
+
+# 高级特性
+
+## 切片
+
+L = [1,A,B,2,1,3,4]
+
+- L[0:2]：`[1,A]`，从索引0开始取数值，到索引2前（即1）停止。也可写作`L[:2]`
+- L[-3:-1]：`[1,3]`
+
+- L[-3:]：`[1,3,4]`最后三个数字。似乎只有这种写法能包括最后一个元素
+
+- L[2::2]：`[B,1,4]`从索引2开始，每两个取一个
+
+- L[:]：原list
+
+- 注意：切片顺序始终为**正向**
+
+- **tuple和字符串**也适用切片操作
+
+  - ```python
+    >>> (0, 1, 2, 3, 4, 5)[:3]
+    (0, 1, 2)
+    ```
+
+  - ```python
+    >>> 'ABCDEFG'[:3]
+    'ABC'
+    >>> 'ABCDEFG'[::2]
+    'ACEG'
+    ```
+
+## 迭代
+
+- Python通过`for in `完成迭代操作
+- 
