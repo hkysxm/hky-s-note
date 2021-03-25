@@ -1,3 +1,11 @@
+
+
+> 最新版 Python  文档
+
+
+
+
+
 # 基础
 
 ## 变量和简单数据类型
@@ -5,6 +13,7 @@
 ### 字符串
 
 #### 转义
+
  - 转义字符`\`
  - `\n`换行 `\t`制表符
  - 用`r''`表示`''`内部的字符串默认不转义
@@ -70,8 +79,10 @@ python 111111
  - `lstrip()`删除左侧空白或指定字符
  - `strip()`删除两侧空白或指定字符
 
-#### Python2中的`print`
- - 可以不加括号
+#### `print`
+
+ - python 2 中可以不加括号
+ - 不自动换行：`print(i,end='')`
 
 ### 数字
 
@@ -133,7 +144,7 @@ print(motorcycles)
 #### `insert()`
  - 在任意位置添加元素`insert(?,?)`
  - 添加到指定索引之**前**，后方所有元素右移一个位置
-- `input()`返回的数据类型是**`str`**
+- `input()` 返回的数据类型是 **`str`**
 
 
 
@@ -190,7 +201,7 @@ cars.sort() print(cars)
 ### `reverse()`
  - **反转**列表元素的排列顺序
  - **永久**改变列表的顺序
- - 和`sort(reserve=True)`的区别：`reserve()`只翻转列表，不会按照字母排序
+ - 和 `sort(reserve=True)`的区别：`reserve()` 只翻转列表，不会按照字母排序
 
 ### `len()`
  - 确定列表长度
@@ -203,36 +214,53 @@ cars.sort() print(cars)
 
 ## tuple元组
 
-- 一旦初始化就不能修改
-- 没有append()，insert()这样的方法；其他获取元素的方法和list相同
+- 一旦初始化就**不能修改**
+- 没有 append()，insert() 这样的方法；其他获取元素的方法和 list 相同
 - `t=()` `t = (1,2,3)`  `t = (1,)`
-
-- tuple无法改变，但是tuple的项目自身可以变化
-
-
+- tuple 无法改变，但是指向的项目自身可以变化
+  ```python
+  t = (1,2,3)
+  t = (2,3,4)
+  print(t)
+  # (2,3,4)
+  ```
 
 ## 条件判断
 
-### `if`
+### `if`  和  `else`
 
 - 和其他语言的区别：需要加冒号
 - 注意缩进
+- 多个筛选条件和其他语言有所不同：`and` `or`
 
 ```python
 age = 20
-if age >= 18:
+if (age >= 18) and (age <= 100):
     print('your age is', age)
     print('adult')
 else:
     print('your age is', age)
-    print('teenager')
+    print('teenager or died')
 ```
+
+### `in`  和  `not in `
+
+- 查找特定值是否包含在列表中
+- 符合返回 `True`，反之 `false`
+
+```python
+list = [1,2,3,'item']
+'item' in list
+# True
+```
+
+
 
 ### `elif`
 
-- 类似于其他语言的`else if`，和`switch case `也有相似之处
+- 类似于其他语言的 `else if`，和 `switch case ` 也有相似之处
 - 注意缩进和冒号
-- 通常最后还有`else`
+- 通常最后还有 `else`，也可以没有
 
 ```python
 age = 20
@@ -244,15 +272,24 @@ else:
     print('kid')
 ```
 
+### 布尔表达式
+
+- 提供条件
+
+```python
+game_active = True 
+can_edit = False
+```
+
 
 
 ## 循环
 
 ### `for`
 
-- `for i in table`遍历list或tuple中的每个元素
+- `for i in table `遍历list或tuple中的每个元素
 
-- Python的for循环只有`for in `
+- Python的for循环只有 `for in `
 
   > 注意缩进
 
@@ -337,8 +374,8 @@ while n < 10:
 ### `dict`
 
 - 键-值（key-value）存储
-- key必须是**不可变**对象，key对应的value可以改变
-  - 在Python中，字符串、整数等都是不可变的
+- key 必须是**不可变**对象，key 对应的 value 可以改变
+  - 在 Python 中，字符串、整数等都是不可变的
 - 具有极快的查找速度，占用内存相比list多
 - 格式 `d = {'a':1,'b':2}`
 
@@ -349,7 +386,9 @@ while n < 10:
 ```
 
 - 放入值，后放入的会覆盖先放入的：`>>> d['Adam'] = 67`
-- 判断key是否存在可以使用`in`和`get()`：
+- 无序的
+- 在 v3.7 前，插入后的顺序和插入顺序不一定一致
+- 判断key是否存在可以使用 `in` 和 `get()`：
 ```python
 >>> 'Michael' in d `
 >>> False
@@ -359,7 +398,7 @@ while n < 10:
 -1
 ```
 
-- 删除`dict`的数据：`pop(key)`，同时会返回`pop`出来的值
+- 删除 `dict` 的数据：`pop(key)`，同时会返回`pop`出来的值
 
 ```python
 >>> d.pop('Bob')
@@ -368,11 +407,29 @@ while n < 10:
 {'Michael': 95, 'Tracy': 85}
 ```
 
+- 也可以使用 `del d('Bob')` 删除键值对
+- 调用 dict 中内容
+
+```python
+# 需要 key 和 value 使用 item() 方法：将 dict 遍历，转换为由 tuple 组成的键—值对 list ,无序
+user_0 = { 'username': 'efermi', 'first': 'enrico', 'last': 'fermi', }
+for k, v in user_0.items():
+    print('Key: ' + k + 'Value: ' + v + '\n')
+# 只需要 key： key()，无序
+print(user_0.keys())
+# 默认结果：dict_keys(['username', 'first', 'last'])
+# 按 sort() 方法给出的顺序：sorted(favorite_languages.keys())
+# 只需要 value：value()，
+dict_values(['efermi', 'enrico', 'fermi'])
+```
+
+
+
 ### `set`
 
-- 只有key，没有value
+- 只有 key，没有 value
 
-- 由于key的特性，`set`中没有重复的元素
+- 由于 key 的特性，`set` 中没有重复的元素
 
 - 不能放入可变对象
 
@@ -385,7 +442,7 @@ TypeError: unhashable type: 'list'
 
 - 若输入重复元素，将会被自动去重
 
-- 格式`s = set([1,2,3,4])`或`s={1,2,4,3}`
+- 格式 `s = set([1,2,3,4])`或 `s={1,2,4,3}`
 
 ```python
 >>> s = set([1, 1, 2, 2, 3, 3])
@@ -395,6 +452,14 @@ TypeError: unhashable type: 'list'
 
 - 向set中添加元素：`s.add(key)`，移除元素：`s.remove(key)`
 
+## 小结
+
+| 类型  | 增   | 删   | 改    | 重复  | 格式                                     |
+| ----- | ---- | ---- | ----- | ----- | ---------------------------------------- |
+| list  | √    | √    | √     | √     | ['1', '2', 'name', '2']                  |
+| tuple | ×    | ×    | ×     | √     | (1, 2, 3)                                |
+| set   | √    | √    | ×     | ×     | {1, 2, 3, 4, 5}及set()  ps：两者有区别！ |
+| dict  | √    | √    | value | value | {'name': 'ywwuyi', 'twitch': 'wuyikoei'} |
 
 # 函数
 
@@ -409,12 +474,12 @@ def function(x):
 ```
 
 - `def`
-- 在Python命令行时，需要注意缩进
-- 打包作为py文件运行时，需要添加头
+- 在 Python 命令行时，需要注意缩进
+- 打包作为 py 文件运行时，需要添加头
 
 ## 导入函数
 
-从`script.py`导入`function()`函数：`from script import function`
+从 `script.py `导入 `function()` 函数：`from script import function`
 
 ## `pass`
 
@@ -430,8 +495,8 @@ if age >= 18:
 ## `raise`
 
 - 引发异常
-- 引发异常后，`raise`后面的语句将无法执行
-- 使用`try...except`等语句可以进行异常调试
+- 引发异常后，`raise` 后面的语句将无法执行
+- 使用`try...except `等语句可以进行异常调试
 
 
 
@@ -448,12 +513,12 @@ if age >= 18:
 - 不填写参数时默认传入的值
 
 -  `def function(x,y=1,z='2')`
-- 必选参数在前，默认参数在后，否则Python的解释器会报错
+- 必选参数在前，默认参数在后，否则 Python 的解释器会报错
    - 有多个参数时，把变化多的参数放前面，变化少的参数放后面。变化小的参数就可以作为默认参数
    - 不按顺序提供部分默认参数时，需要把参数名写上
 
 ### 可变参数
-- 参数接收到的转为**tuple**，可以传入任意个参数，包括**0**个
+- 参数接收到的转为 **tuple**，可以传入任意个参数，包括 **0** 个
 
 - 已有list或者tuple的情况下，可以直接变换后传入
 
@@ -469,11 +534,11 @@ if age >= 18:
 ### 关键字参数
 - 必须传入要求的参数
 
-- 类似可变参数，传入后转为**dict**
+- 类似可变参数，传入后转为 **dict**
 
 - `def function(x,y=1,**z)`
 
-- 将dict直接传入的情况
+- 将 dict 直接传入的情况
 
   ```python
   >>> extra = {'city': 'Beijing', 'job': 'Engineer'}
@@ -488,7 +553,7 @@ if age >= 18:
 
 - 只接收特定关键字参数
 
-- 需要一个特殊分隔符`*`，`*`**后面**的参数被视为命名关键字参数
+- 需要一个特殊分隔符 `*`，`*` **后面**的参数被视为命名关键字参数
 
 - 可变参数后面的参数都为命名关键字参数，无需添加`*` 
 
@@ -502,7 +567,7 @@ if age >= 18:
 
 ## 递归函数
 
-- python递归调用次数上限：1000
+- python 递归调用次数上限：1000
 
 - 普通递归调用：
 
@@ -540,7 +605,7 @@ if age >= 18:
   # 15
   ```
 
-- 两种情况下，两个函数递归调用次数均不能超过1000，执行参数n=999即报错
+- 两种情况下，两个函数递归调用次数均不能超过 1000，执行参数 n=999 即报错
 
 
 
@@ -550,18 +615,18 @@ if age >= 18:
 
 L = [1,A,B,2,1,3,4]
 
-- L[0:2]：`[1,A]`，从索引0开始取数值，到索引2前（即1）停止。也可写作`L[:2]`
+- L[0:2]：`[1,A]`，从索引0开始取数值，到索引 2 前（即 1）停止。也可写作`L[:2]`，反之亦可省略
 - L[-3:-1]：`[1,3]`
 
 - L[-3:]：`[1,3,4]`最后三个数字。似乎只有这种写法能包括最后一个元素
 
-- L[2::2]：`[B,1,4]`从索引2开始，每两个取一个
+- L[2::2]：`[B,1,4]`从索引 2 开始，每两个取一个
 
-- L[:]：原list
+- L[:]：复制原 list，和 L1 = L2 不同
 
 - 注意：切片顺序始终为**正向**
 
-- **tuple和字符串**也适用切片操作
+- **tuple 和字符串**也适用切片操作
 
   - ```python
     >>> (0, 1, 2, 3, 4, 5)[:3]
@@ -579,3 +644,4 @@ L = [1,A,B,2,1,3,4]
 
 - Python通过`for in `完成迭代操作
 - 
+
